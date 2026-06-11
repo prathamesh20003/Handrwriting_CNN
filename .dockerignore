@@ -1,0 +1,11 @@
+#Ignore Everything
+*
+
+#Allowed Files 
+!requirements-docker.txt
+!/src/
+!/src/**
+
+#Excluded Files 
+/src/data/
+/src/tests/

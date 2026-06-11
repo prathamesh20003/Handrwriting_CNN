@@ -57,4 +57,3 @@ async def predict(file: UploadFile = File(...)):
         "digit": prediction,
         "confidence": confidence
     }
-    

@@ -2,14 +2,18 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN pip install uv
+COPY requirements-docker.txt .
 
-COPY pyproject.toml uv.lock ./
+RUN pip install --upgrade pip
 
-RUN uv sync --frozen
+RUN pip install --no-cache-dir -r requirements-docker.txt
 
-COPY . .
+RUN pip install \
+    --index-url https://download.pytorch.org/whl/cpu \
+    torch torchvision
+
+COPY src ./src
 
 EXPOSE 8000
 
-CMD ["uv", "run", "uvicorn", "src.app.app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.app.app:app", "--host", "0.0.0.0", "--port", "8000"]

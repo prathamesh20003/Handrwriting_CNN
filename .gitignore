@@ -1,12 +1,18 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+#Ignore Everything
+*
 
-# Virtual environments
-.venv
-notebooks/
-dataset/
+#Allowed Directories
+!/notebooks/
+!/src/
+## Excluded Folders in SubDirectories
+**/__pycache__/
+
+#Allowed Files
+!.dockerignore
+!.gitignore
+!.python-version
+!Dockerfile
+!pyproject.toml
+!README.md
+!requirements-docker.txt
+!uv.lock
